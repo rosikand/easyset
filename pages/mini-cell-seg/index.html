@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <link rel="stylesheet" href="/libs/highlight/styles/github.min.css">
+   
+  <link rel="stylesheet" href="/css/franklin.css">
+<link rel="stylesheet" href="/css/jemdoc.css">
+<link rel="icon" href="/assets/favicon.png">
+
+   <title>Mini Cell Segmentation</title>  
+</head>
+<body>
+<main class="outside">
+  <div class="box">
+    <aside class="layout-menu">
+      <div class="menu-category">EasySet</div>
+      <div class="menu-item "><a href="/">Home</a></div>
+    <div class="menu-category">Datasets API</div>
+      <div class="menu-item current"><a href="/pages/mini-cell-seg/">Mini Cell Segmentation</a></div>
+    </aside>
+    <div class="layout-content">
+
+
+<!-- Content appended here -->
+<div class="franklin-content">
+<h1 id="mini_cell_segmentation"><a href="#mini_cell_segmentation" class="header-anchor">Mini Cell Segmentation</a></h1>
+<blockquote>
+<p>A small, pre-processed dataset for cellular image segmentation.</p>
+</blockquote>
+<p><div class="franklin-toc"><ol><li><a href="#dataset_list_format">Dataset list format </a></li><li><a href="#dataset_files">Dataset files</a></li></ol></div> </p>
+<p>This repo contains a dataset already pre-processed to test semantic segmentation models. The original data is from <a href="https://www.kaggle.com/c/data-science-bowl-2018">here</a> is of nuclei in cells. Furthermore, the dataset is quite small with only 13 samples &#40;&lt; 21 mb&#41;. </p>
+<p>The original data is stored in <code>data.zip</code> and the processing script is <code>run.py</code> &#40;which uses several functions from <code>util.py</code>&#41;. The processed dataset is just a list of arrays serialized in <code>.pkl</code> files. You can reproduce the pickled files by unzipping the <code>data.zip</code> file and running <code>&#36; python3 run.py</code>. </p>
+<h2 id="dataset_list_format"><a href="#dataset_list_format" class="header-anchor">Dataset list format </a></h2>
+<p>Data is a list of the form <code>&#91;&#40;x,y&#41;, &#40;x,y&#41;,..., &#40;x,y&#41;&#93;</code> where each <code>x</code> is normalized float array representing the image and each <code>y</code> is a normalized float array representing the segmentation mask. </p>
+<h2 id="dataset_files"><a href="#dataset_files" class="header-anchor">Dataset files</a></h2>
+<ul>
+<li><p><code>np_cell_data.pkl</code>: dataset where each sample &#40;image and mask&#41; are float numpy arrays. </p>
+</li>
+<li><p><code>jax_cell_data.pkl</code>: same as the numpy version except the arrays are jaxlib arrays. Reduces size by 10 mb&#33;</p>
+</li>
+<li><p><code>jax_cell_data_same_shape.pkl</code>: same as above but the images and masks have same shape and size. Originally, the images are of shape <code>&#40;224, 224, 3&#41;</code> &#40;RGB&#41; and the masks are of shape <code>&#40;224, 224, 1&#41;</code> &#40;grayscale&#41;. This dataset file loads in the images in grayscale format making the shape the same as the mask <code>&#40;224, 224, 1&#41;</code>. This makes it convenient when using e.g., loss functions. </p>
+</li>
+<li><p><code>small_set.pkl</code>: images and masks are downsized to <code>&#40;1, 28, 28&#41;</code>. Resolution is poor but less compute power is needed. Run <code>small_run.py</code> to build this. </p>
+</li>
+<li><p><code>small_set_np.pkl</code>: same as above but in numpy instead of Jax. </p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/57341225/176973764-eca2160f-3d43-43bb-b2f2-c71624463aff.png" alt="image" /></p>
+<div class="page-foot">
+
+    <a href="https://github.com/rosikand">rosikand/easyset</a>.
+
+
+    Last modified: July 11, 2022.
+    Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+</div>
+</div><!-- CONTENT ENDS HERE -->
+        </div>
+    
+    
+        <script src="/libs/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();hljs.configure({tabReplace: '    '});</script>
+
+    
+    </div>
+  </main>
+  </body>
+</html>

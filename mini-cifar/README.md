@@ -11,7 +11,7 @@ The main use case for this dataset is to quickly test that your model is working
 
 ## Dataset list format 
 
-Data is a list of the form `[(x,y), (x,y),..., (x,y)]` where each `x` is normalized float array representing the image and each `y` is a normalized float array representing the segmentation mask. 
+Data is a list of the form `[(x,y), (x,y),..., (x,y)]` where each `x` is normalized float array representing the image and each `y` is a int label. 
 
 
 ## Dataset files

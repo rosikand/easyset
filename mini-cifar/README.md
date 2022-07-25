@@ -17,5 +17,3 @@ Data is a list of the form `[(x,y), (x,y),..., (x,y)]` where each `x` is normali
 ## Dataset files
 
 - **(Main file) `mini_cifar.pkl`**: numpy array format. 
-
-Variations: 

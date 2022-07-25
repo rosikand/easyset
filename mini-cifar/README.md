@@ -1,13 +1,7 @@
-+++
-title = "Mini CIFAR"
-hascode = true
-+++
 
 # Mini CIFAR
 
 > A small, pre-processed dataset for image classification. 
-
-\toc 
 
 This repo contains a dataset already pre-processed to test image classification models. It is a subset of the CIFAR-10 dataset 
 containing only two classes, each with 20 samples. 

@@ -4,7 +4,6 @@ import pickle
 import cv2
 import numpy as np
 from util import *
-import jax.numpy as jnp
 import numpy as np 
 import rsbox
 from rsbox import ml_utils

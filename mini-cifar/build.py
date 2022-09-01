@@ -1,5 +1,5 @@
 import rsbox
-from rsbox import ml_utils 
+from rsbox import ml 
 import numpy as np
 from glob import glob
 import pickle
@@ -26,17 +26,17 @@ def img_dataset_from_dir(dir_path):
 	master_list = []
 	idx = 0
 	for class_ in class_list:
-		curr_class = ml_utils.image_dir_to_data_norm(class_, "png")
+		curr_class = ml.image_dir_to_data_norm(class_, "png")
 		new_arrays = []
 		for elem in curr_class:
 			elem = np.moveaxis(elem, -1, 0)
 			new_arrays.append(elem)
 
-		labeled_list = ml_utils.gen_label_pair(new_arrays, idx)
+		labeled_list = ml.gen_label_pair(new_arrays, idx)
 		master_list.append(labeled_list)
 		idx += 1
 
-	return ml_utils.gen_distro(master_list)
+	return ml.gen_distro(master_list)
 
 
 
